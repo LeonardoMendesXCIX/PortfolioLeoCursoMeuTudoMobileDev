@@ -1,20 +1,20 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import MainScreen from './screens/MainScreen';
+import SkillScreen from './screens/SkillScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Main">
+        <Stack.Screen name="Main" component={MainScreen} options={{ title: 'Main Screen' }} />
+        <Stack.Screen name="Skill" component={SkillScreen} options={{ title: 'Skill Screen' }} />
+      </Stack.Navigator>
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
